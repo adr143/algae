@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}
+    Add Status
+{% endblock %}
+{% block content %}
+    <h1>Add Status</h1>
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.temperature.label }}<br>
+            {{ form.temperature(size=32) }}<br>
+            {% for error in form.temperature.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.humidity.label }}<br>
+            {{ form.humidity(size=32) }}<br>
+            {% for error in form.humidity.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.ppm_algal.label }}<br>
+            {{ form.ppm_algal(size=32) }}<br>
+            {% for error in form.ppm_algal.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.ph_value.label }}<br>
+            {{ form.ph_value(size=32) }}<br>
+            {% for error in form.ph_value.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.submit() }}
+        </p>
+    </form>
+{% endblock %}

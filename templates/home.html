@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}
+Home
+{% endblock %}
+{% block content %}
+<h1 class="page-title">Algae Detection</h1>
+<div id="container">
+    <div id="video-container">
+        <h2 id="camera-status">Camera Status</h2>
+        <img id="video_feed" src="{{ url_for('main.video_feed') }}" width="100%">
+    </div>
+    <div id="info-container">
+        <div id="params">
+            <div class="param-container">
+                <table id="param-table" class="display-table">
+                    <tr class="param-row">
+                        <th class="param">DO</th>
+                        <td class="data" id="ppm">00</td>
+                    </tr>
+                    <tr class="param-row">
+                        <th class="param">PH</th>
+                        <td class="data" id="ph"></td>
+                    </tr>
+                    <tr class="param-row">
+                        <th class="param">Temperature</th>
+                        <td class="data">00</td>
+                    </tr>
+                    <tr class="param-row">
+                        <th class="param">Humidity</th>
+                        <td class="data">00</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="param-container">
+                <table id="datetime-table" class="display-table">
+                    <tr class="param-row">
+                        <th class="param">Time</th>
+                        <td class="data" id="time"></td>
+                    </tr>
+                    <tr class="param-row">
+                        <th class="param">Date</th>
+                        <td class="data" id="date"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="nav-icon-container" class="param-container">
+            <a href='{{url_for("main.table")}}' class="nav-icons" title="Database">📊</a>
+            <a href='{{url_for("main.settings")}}' class="nav-icons" title="Settings">⚙️</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

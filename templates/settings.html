@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %}
+Settings
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <h1 class="page-title">Settings</h1>
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+
+            <div class="form-group">
+                <label for="frequency">Frequency</label>
+                {{ form.frequency(id="frequency") }}
+                {% if form.frequency.errors %}
+                    <div class="text-danger">
+                        {{ form.frequency.errors[0] }}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="form-group" id="time_sched_group" class="hidden">
+                <label for="time_sched">Time Schedule</label>
+                {{ form.time_sched(id="time_sched") }}
+                {% if form.time_sched.errors %}
+                    <div class="text-danger">
+                        {{ form.time_sched.errors[0] }}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="form-group hidden" id="day_week_group">
+                <label for="day_week">Day of the Week</label>
+                {{ form.day_week(id="day_week") }}
+                {% if form.day_week.errors %}
+                    <div class="text-danger">
+                        {{ form.day_week.errors[0] }}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="form-group hidden" id="interval_group">
+                <label for="interval_hours">Interval Hours</label>
+                {{ form.interval_hours(id="interval_hours") }}
+                {% if form.interval_hours.errors %}
+                    <div class="text-danger">
+                        {{ form.interval_hours.errors[0] }}
+                    </div>
+                {% endif %}
+
+                <label for="interval_minutes">Interval Minutes</label>
+                {{ form.interval_minutes(id="interval_minutes") }}
+                {% if form.interval_minutes.errors %}
+                    <div class="text-danger">
+                        {{ form.interval_minutes.errors[0] }}
+                    </div>
+                {% endif %}
+
+                <label for="interval_seconds">Interval Seconds</label>
+                {{ form.interval_seconds(id="interval_seconds") }}
+                {% if form.interval_seconds.errors %}
+                    <div class="text-danger">
+                        {{ form.interval_seconds.errors[0] }}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="temp_unit">Temperature Unit</label>
+                {{ form.temp_unit(id="temp_unit") }}
+                {% if form.temp_unit.errors %}
+                    <div class="text-danger">
+                        {{ form.temp_unit.errors[0] }}
+                    </div>
+                {% endif %}
+            </div>
+
+            <button type="submit">Save Settings</button>
+        </form>
+    </div>
+{% endblock %}

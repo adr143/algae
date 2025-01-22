@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}
+
+{% endblock %}
+{% block content %}
+<h1>Status History</h1>
+<div class="container">
+        <a href='{{url_for("main.export_excel")}}' class="btn" id="download-btn" type="submit">Download Excel ⬇️</a>
+        <a href='{{url_for("main.clear_table")}}' class="btn" id="clear-btn" type="submit">Clear Data 🗑</a>
+        <table id="status-table">
+                <thead id="status-head">
+                        <th class="status-label">#</th>
+                        <th class="status-label">Temperature</th>
+                        <th class="status-label">Humidity</th>
+                        <th class="status-label">DO Value</th>
+                        <th class="status-label">pH value</th>
+                        <th class="status-label">TImestamp</th>
+                </thead>
+                {% for status in statuses %}
+                <tr class="status">
+                        <td class="status-data">{{ loop.index }}</td>
+                        <td class="status-data">{{ status.temperature }}</td>
+                        <td class="status-data">{{ status.humidity }}</td>
+                        <td class="status-data">{{ status.ppm_algal }}</td>
+                        <td class="status-data">{{ status.ph_value }}</td>
+                        <td class="status-data">{{ status.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                </tr>
+                {% endfor %}
+        </table>
+</div>
+
+{% endblock %}
