@@ -61,7 +61,7 @@ class Arduino_Serial:
     def get_ph_value(self):
         return self._ph_value
     
-    def get_ppm_value(self):
+    def get_do_value(self):
         return self._do_value
 
 
