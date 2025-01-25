@@ -48,7 +48,7 @@ class Arduino_Serial:
         self._thread = threading.Thread(target=self.read_serial, daemon=True)
         self._thread.start()
         self._ph_value = 0
-        self._ppm_value = 0
+        self._do_value = 0
         
     def read_serial(self):
         while True:
@@ -56,13 +56,13 @@ class Arduino_Serial:
             status_data = data.split(',')
             if data:
                 self._ph_value = status_data[0]
-                self._ppm_value = status_data[1]
+                self._do_value = status_data[1]
 
     def get_ph_value(self):
         return self._ph_value
     
     def get_ppm_value(self):
-        return self._ppm_value
+        return self._do_value
 
 
 
