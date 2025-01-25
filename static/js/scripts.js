@@ -67,7 +67,7 @@ function fetchStatus() {
       })
       .then(data => {
         document.getElementById('ph').textContent = data.ph_value;
-        document.getElementById('ppm').textContent = data.ppm_value;
+        document.getElementById('ppm').textContent = f`${data.do_value} mg/L`;
       })
       .catch(error => {
         console.error('Error connecting to Flask:', error);

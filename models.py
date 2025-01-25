@@ -12,18 +12,18 @@ class Status(db.Model):
     timestamp = db.Column(db.DateTime, default=datetime.now()) 
     temperature = db.Column(db.Float)
     humidity = db.Column(db.Float)
-    ppm_algal = db.Column(db.Float)
+    do_algal = db.Column(db.Float)
     ph_value = db.Column(db.Float)
 
     def __init__(self, timestamp, temperature, humidity, ppm_algal, ph_value):
         self.timestamp = timestamp
         self.temperature = temperature
         self.humidity = humidity
-        self.ppm_algal = ppm_algal
+        self.do_algal = ppm_algal
         self.ph_value = ph_value
 
     def __repr__(self):
-        return f'<Status(timestamp={self.timestamp}, temperature={self.temperature}, humidity={self.humidity}, ppm_algal={self.ppm_algal}, ph_value={self.ph_value})>'
+        return f'<Status(timestamp={self.timestamp}, temperature={self.temperature}, humidity={self.humidity}, ppm_algal={self.do_algal}, ph_value={self.ph_value})>'
     
     def serialize(self):
         return {
@@ -31,7 +31,7 @@ class Status(db.Model):
             'timestamp': self.timestamp.isoformat(),
             'temperature': self.temperature,
             'humidity': self.humidity,
-            'ppm_algal': self.ppm_algal,
+            'ppm_algal': self.do_algal,
             'ph_value': self.ph_value
         }
     

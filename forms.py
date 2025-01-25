@@ -16,6 +16,6 @@ class Settings(FlaskForm):
 class StatusForm(FlaskForm):
     temperature = FloatField('Temperature', validators=[DataRequired()])
     humidity = FloatField('Humidity', validators=[DataRequired()])
-    ppm_algal = FloatField('PPM Algal', validators=[DataRequired()])
+    do_algal = FloatField('PPM Algal', validators=[DataRequired()])
     ph_value = FloatField('pH Value', validators=[DataRequired()])
     submit = SubmitField('Submit')

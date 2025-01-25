@@ -44,8 +44,8 @@ class Router:
     
     def get_status(self):
         ph_data = self.serial_com.get_ph_value
-        ppm_data = self.serial_com.get_ppm_algal()
-        return jsonify({"ph_value":ph_data, "ppm_value": ppm_data})
+        do_data = self.serial_com.get_do_algal()
+        return jsonify({"ph_value":ph_data, "do_value": do_data})
     
     def video_feed(self):
         return Response(self.stream.generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
@@ -85,7 +85,7 @@ class Router:
                 timestamp=datetime.now(),
                 temperature=form.temperature.data,
                 humidity=form.humidity.data,
-                ppm_algal=form.ppm_algal.data,
+                do_algal=form.do_algal.data,
                 ph_value=form.ph_value.data
             )
             self.database.session.add(new_status)
@@ -101,7 +101,7 @@ class Router:
             {"ID": i+1,
             "Temperature": status.temperature,
             "Humidity": status.humidity,
-            "PPM": status.ppm_algal,
+            "DO(mg/L)": status.do_algal,
             "pH": status.ph_value,
             "Date": status.timestamp.strftime("%Y-%m-%d"),
             "Time": status.timestamp.strftime("%I:%M:%S %p"),
