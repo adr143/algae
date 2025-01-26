@@ -49,8 +49,13 @@ function fetchDateTIme() {
         return response.json();
       })
       .then(data => {
-        document.getElementById('date').textContent = data.date;
-        document.getElementById('time').textContent = data.time;
+        date_elem = document.getElementById('date')
+        time_elem = document.getElementById('time')
+
+        if (date_elem || time_elem) {
+          document.getElementById('date').textContent = data.date;
+          document.getElementById('time').textContent = data.time;
+        }
       })
       .catch(error => {
         console.error('Error connecting to Flask:', error);
@@ -66,8 +71,24 @@ function fetchStatus() {
         return response.json();
       })
       .then(data => {
-        document.getElementById('ph').textContent = data.ph_value;
-        document.getElementById('ppm').textContent = f`${data.do_value} mg/L`;
+        const temp_format = () => {
+          if (typeof data.temp_format === "string" && data.temp_format.toLowerCase() === "celsius") {
+            return "C";
+          }
+          return "F";
+        };
+
+        ph_elem = document.getElementById('ph')
+        do_elem = document.getElementById('do')
+        temp_elem = document.getElementById('temp')
+        humid_elem = document.getElementById('humid')
+        
+        if(ph_elem || temp_elem || humid_elem || do_elem) {
+          document.getElementById('ph').textContent = `${data.ph_value} pH`;
+          document.getElementById('do').textContent = `${data.do_value} mg/L`;
+          document.getElementById('temp').textContent = `${data.temp} ${temp_format()}`;
+          document.getElementById('humid').textContent = `${data.humid}%`;
+        }
       })
       .catch(error => {
         console.error('Error connecting to Flask:', error);

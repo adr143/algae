@@ -3,7 +3,9 @@
 Home
 {% endblock %}
 {% block content %}
-<h1 class="page-title">Algae Detection</h1>
+<div class="logo-container">
+    <img id="logo" src='{{url_for("static", filename="img/logo.png")}}' alt="AguaMulak Logo" srcset="">
+</div>
 <div id="container">
     <div id="video-container">
         <h2 id="camera-status">Camera Status</h2>
@@ -15,7 +17,7 @@ Home
                 <table id="param-table" class="display-table">
                     <tr class="param-row">
                         <th class="param">DO</th>
-                        <td class="data" id="ppm">00</td>
+                        <td class="data" id="do">00</td>
                     </tr>
                     <tr class="param-row">
                         <th class="param">PH</th>
@@ -23,11 +25,11 @@ Home
                     </tr>
                     <tr class="param-row">
                         <th class="param">Temperature</th>
-                        <td class="data">00</td>
+                        <td class="data" id="temp">00</td>
                     </tr>
                     <tr class="param-row">
                         <th class="param">Humidity</th>
-                        <td class="data">00</td>
+                        <td class="data" id="humid">00</td>
                     </tr>
                 </table>
             </div>

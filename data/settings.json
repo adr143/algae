@@ -1,0 +1,9 @@
+{
+    "time_sched": "00:00:00",
+    "temp_unit": "Celsius",
+    "frequency": "Custom",
+    "day_week": "Thursday",
+    "interval_hours": 0,
+    "interval_minutes": 0,
+    "interval_seconds": 10
+}

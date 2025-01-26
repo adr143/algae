@@ -1,6 +1,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
+    margin-top: 2rem;
     padding: 0;
     background-color: #171717;
     color: #ededed;
@@ -20,6 +21,19 @@ h1 {
     text-align: center;
 }
 
+.logo-container {
+    display: flex;
+    max-width: 100%;
+    height: 10%;
+    justify-content: center;
+}
+
+#logo {
+    margin-inline: auto;
+    width: 7.5%;
+    aspect-ratio: 1/1;
+}
+
 #container {
     display: flex;
     flex-wrap: wrap;
@@ -30,8 +44,8 @@ h1 {
 
 #video-container, #info-container {
     flex: 1;
-    min-width: 300px;
-    max-width: 600px;
+    min-width: 200px;
+    max-width: 500px;
     box-sizing: border-box;
 }
 
@@ -110,6 +124,7 @@ h1 {
 form {
     max-width: 400px;
     margin: auto;
+    margin-top: 2rem;
     padding: 20px;
     background-color: rgb(17, 17, 17);
     border-radius: 12px;
@@ -194,6 +209,15 @@ button:active {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+#back-btn {
+    position: sticky;
+    top: 0%;
+    left: 0%;
+    background-color: white;
+    color: black;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 #clear-btn:hover {
     background-color: #d32f2f;
     transform: scale(1.05);
@@ -242,7 +266,32 @@ button:active {
     border-bottom: none;
 }
 
-@media (max-width: 768px) {
+.tab-container {
+    width: 100%;
+    overflow-x: auto; /* Enables horizontal scrolling */
+}
+
+.tab-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 14px;
+    color: white;
+    background-color: #2d87f0;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 10px 5px 0 0;
+    text-align: center;
+}
+
+.tab-btn:hover {
+    background-color: #1a5fbf;
+}
+
+@media screen and (max-width: 768px) {
+    #logo {
+        width: 20%;
+    }
+
     #container {
         flex-direction: column;
         align-items: center;
@@ -252,8 +301,18 @@ button:active {
         max-width: 100%;
     }
 
+    #status-table th, #status-table .status-data {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .tab-btn {
+        width: 100%; 
+        margin: 5px 0; 
+    }
+
     #status-table {
-        font-size: 14px;
+        font-size: 12px; 
     }
 
     .btn {

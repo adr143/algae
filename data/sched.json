@@ -1,0 +1,11 @@
+{
+    "time_based": false,
+    "interval": [
+        0,
+        0,
+        10
+    ],
+    "schedule_time": null,
+    "frequency": null,
+    "day_of_week": "thursday"
+}

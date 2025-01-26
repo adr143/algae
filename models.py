@@ -15,11 +15,11 @@ class Status(db.Model):
     do_algal = db.Column(db.Float)
     ph_value = db.Column(db.Float)
 
-    def __init__(self, timestamp, temperature, humidity, ppm_algal, ph_value):
+    def __init__(self, timestamp, temperature, humidity, do_algal, ph_value):
         self.timestamp = timestamp
         self.temperature = temperature
         self.humidity = humidity
-        self.do_algal = ppm_algal
+        self.do_algal = do_algal
         self.ph_value = ph_value
 
     def __repr__(self):
@@ -31,7 +31,7 @@ class Status(db.Model):
             'timestamp': self.timestamp.isoformat(),
             'temperature': self.temperature,
             'humidity': self.humidity,
-            'ppm_algal': self.do_algal,
+            'do_algal': self.do_algal,
             'ph_value': self.ph_value
         }
     
@@ -47,4 +47,9 @@ class Status(db.Model):
     def get_status_by_id(status_id):
         return Status.query.get(status_id)
     
+    @staticmethod
+    def delete_all():
+        Status.query.delete()
+        db.session.commit()
+        return 'All statuses deleted.'
     
